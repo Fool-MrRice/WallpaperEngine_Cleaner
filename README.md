@@ -13,7 +13,6 @@
 ## 📁 包含文件
 
 - `WallpaperEngineCleaner.exe` - 主程序（可直接双击运行）
-- `WallpaperEngineCleaner.bat` - 批处理文件（备用）
 - `we_clean_vdf(用于清除没有订阅的壁纸).ps1` - PowerShell 核心脚本
 - `we_clean_vdf_documentation.md` - 详细文档
 
@@ -78,11 +77,7 @@ A: 不可以，删除操作是永久的。请在删除前仔细检查待删除�
 
 ## 📄 许可证
 
-本项目采用 MIT 许可证，详见 LICENSE 文件。
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request 来改进这个工具！
+本项目无许可证，仅仅是开源使用。
 
 ## 📧 联系方式
 
