@@ -8,7 +8,7 @@ $defaultSubFile = "D:\steam\userdata\1603085091\ugc\431960_subscriptions.vdf"
 
 # 询问是否修改壁纸存放路径
 Write-Host "默认壁纸存放路径: $defaultWeDir" -ForegroundColor Cyan
-$changeWeDir = Read-Host "是否修改壁纸存放路径? (y/N)"
+$changeWeDir = Read-Host "请确保这是你真实的壁纸存放路径，若不是，请输入正确的路径。是否修改壁纸存放路径? (y/N)"
 if ($changeWeDir -eq 'y') {
     $weDir = Read-Host "请输入新的壁纸存放路径"
 } else {
@@ -18,7 +18,7 @@ if ($changeWeDir -eq 'y') {
 # 询问是否修改订阅名单存放路径
 Write-Host "\n默认订阅名单存放路径: $defaultSubFile" -ForegroundColor Cyan
 Write-Host "(重点文件名: 431960_subscriptions.vdf)" -ForegroundColor Yellow
-$changeSubFile = Read-Host "是否修改订阅名单存放路径? (y/N)"
+$changeSubFile = Read-Host "请确保这是你真实的订阅名单存放路径，若不是，请输入正确的路径。是否修改订阅名单存放路径? (y/N)"
 if ($changeSubFile -eq 'y') {
     $subFile = Read-Host "请输入新的订阅名单存放路径"
 } else {
