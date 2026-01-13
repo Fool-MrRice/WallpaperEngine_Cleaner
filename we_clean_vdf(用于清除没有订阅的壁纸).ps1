@@ -1,6 +1,34 @@
 ﻿# WE 安全清理脚本 —— 适配 publishedfileid 格式
-$weDir   = "F:\SteamLibrary\steamapps\workshop\content\431960"
-$subFile = "D:\steam\userdata\1603085091\ugc\431960_subscriptions.vdf"
+
+# 默认壁纸存放路径
+$defaultWeDir = "F:\SteamLibrary\steamapps\workshop\content\431960"
+
+# 默认订阅名单存放路径
+$defaultSubFile = "D:\steam\userdata\1603085091\ugc\431960_subscriptions.vdf"
+
+# 询问是否修改壁纸存放路径
+Write-Host "默认壁纸存放路径: $defaultWeDir" -ForegroundColor Cyan
+$changeWeDir = Read-Host "是否修改壁纸存放路径? (y/N)"
+if ($changeWeDir -eq 'y') {
+    $weDir = Read-Host "请输入新的壁纸存放路径"
+} else {
+    $weDir = $defaultWeDir
+}
+
+# 询问是否修改订阅名单存放路径
+Write-Host "\n默认订阅名单存放路径: $defaultSubFile" -ForegroundColor Cyan
+Write-Host "(重点文件名: 431960_subscriptions.vdf)" -ForegroundColor Yellow
+$changeSubFile = Read-Host "是否修改订阅名单存放路径? (y/N)"
+if ($changeSubFile -eq 'y') {
+    $subFile = Read-Host "请输入新的订阅名单存放路径"
+} else {
+    $subFile = $defaultSubFile
+}
+
+Write-Host "\n使用的路径:" -ForegroundColor Green
+Write-Host "壁纸存放路径: $weDir" -ForegroundColor Green
+Write-Host "订阅名单路径: $subFile" -ForegroundColor Green
+Write-Host ""
 
 # 1. 提取所有 publishedfileid
 $content = Get-Content $subFile -Raw
@@ -16,6 +44,7 @@ $trash = Get-ChildItem $weDir -Directory |
 
 if (!$trash) {
     Write-Host "没有可清理的壁纸" -ForegroundColor Yellow
+    Write-Host "按回车退出程序"
     Read-Host; exit
 }
 
@@ -35,4 +64,5 @@ Read-Host
 
 $trash | Remove-Item -Recurse -Force -ErrorAction Stop
 Write-Host "完成，已释放空间." -ForegroundColor Green
+Write-Host "按回车退出程序"
 Read-Host
